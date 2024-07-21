@@ -8,9 +8,7 @@ import React from "react";
 import styles from "../../styles/Auth.module.css";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
 
 function Register() {
@@ -19,23 +17,22 @@ function Register() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const passwordRef = useRef(null);
-  const provider = new GoogleAuthProvider();
-  const auth = getAuth();
 
   function handleRegister(e) {
     console.log("Registration handled");
     e.preventDefault();
-    const authentication = getAuth(app);
-    // const authentication = getAuth();
+    // const authentication = getAuth(app);
+    const authentication = getAuth();
 
     const name = nameRef.current.value;
-    const email = emailRef;
+    console.log(nameRef);
+    const email = emailRef.current.value;
     const password = passwordRef.current.value;
     console.log(authentication);
     createUserWithEmailAndPassword(authentication, email, password).then
      (async (response) => {
-      console.log(response.user);
-        console.log(response);
+      console.log("response.user" ,response.user);
+        console.log("response",response);
         dispatch(
           setUserDetails({
             uid: response.user.uid,
