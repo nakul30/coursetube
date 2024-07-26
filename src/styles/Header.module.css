@@ -1,0 +1,8 @@
+.header {
+    background-color: transparent !important;
+    height: 10vh;
+}
+
+.headername {
+    cursor: pointer;
+}
