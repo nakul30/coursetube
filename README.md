@@ -2,6 +2,11 @@
 
 This project was bootstrapped with npx [Create React App](https://github.com/facebook/create-react-app).
 
+
+The Link for Hosted app is: 
+
+https://coursetubeing.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
