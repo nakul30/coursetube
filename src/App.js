@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import LinkInput from "./components/LinkInput";
+import MyCourses from "./pages/home/MyCourses";
+import {app} from "./config/firebase-config";
+import Course from "./pages/home/Course";
+import Header from "./components/Header";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<LinkInput/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path = "/mycourses" element = { <MyCourses/> } />
+        <Route path = "/player" element = { <Course/> } />
+      </Routes>
+    </Router>
   );
 }
 
