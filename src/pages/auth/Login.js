@@ -61,7 +61,18 @@ function Login() {
                 ref={passwordRef}
             ></input>
             <button onClick={handleLogin}>Login</button>
+            <div style={{ textAlign: 'center', margin: '0 auto', width: 'fit-content' }}>
+                <div>
+                Use the following credentials to login:
+                </div>
+                <div>Email:nakul@testing2.com</div>
+                <div>
+                Password:nakul@testing
+                </div>
+                
+            </div>
         </div>
+        
     )
 }
 

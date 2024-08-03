@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
     let navigate = useNavigate();
     const { name } = useSelector((state) => state.user.value);
+    const {uid} = useSelector((state) => state.user.value);
     return (
         <Navbar
             collapseOnSelect
@@ -32,13 +33,13 @@ function Header() {
                     >
                         My Courses
                     </Nav.Link>
-                    <Nav.Link
+                    {/* {uid=== null ?<Nav.Link
                         onClick={() => {
                             navigate("/register");
                         }}
                     >
                         Register
-                    </Nav.Link>
+                    </Nav.Link>: ""} */}
                 </Nav>
                 <Nav>
                     <Nav.Link eventKey={2}>{name}</Nav.Link>

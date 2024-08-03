@@ -21,7 +21,7 @@ function Register() {
   function handleRegister(e) {
     console.log("Registration handled");
     e.preventDefault();
-    // const authentication = getAuth(app);
+
     const authentication = getAuth();
 
     const name = nameRef.current.value;
