@@ -105,12 +105,12 @@ function Player() {
                     // console.log("onReady");
                     setisMounted(true);
                 }}
-                onStart={() => // console.log("onStart")}
+                onStart={() =>  console.log("onStart")}
                 onPlay={handlePlay}
                 onPause={handlePause}
-                onBuffer={() => // console.log("onBuffer")}
-                onSeek={(e) => // console.log("onSeek", e)}
-                onError={(e) => // console.log("onError", e)}
+                onBuffer={() =>  console.log("onBuffer")}
+                onSeek={(e) =>  console.log("onSeek", e)}
+                onError={(e) =>  console.log("onError", e)}
                 onDuration={handleDuration}
                 onProgress={handleProgress}
             />
