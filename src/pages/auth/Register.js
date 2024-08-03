@@ -19,20 +19,20 @@ function Register() {
   const passwordRef = useRef(null);
 
   function handleRegister(e) {
-    console.log("Registration handled");
+    // console.log("Registration handled");
     e.preventDefault();
 
     const authentication = getAuth();
 
     const name = nameRef.current.value;
-    console.log(nameRef);
+    // console.log(nameRef);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(authentication);
+    // console.log(authentication);
     createUserWithEmailAndPassword(authentication, email, password).then
      (async (response) => {
-      console.log("response.user" ,response.user);
-        console.log("response",response);
+      // console.log("response.user" ,response.user);
+        // console.log("response",response);
         dispatch(
           setUserDetails({
             uid: response.user.uid,

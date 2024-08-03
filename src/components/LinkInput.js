@@ -59,17 +59,17 @@ function LinkInput() {
 
   async function loadDescription() {
     var url = inputRef.current.value;
-    console.log(url);
+    // console.log(url);
     let videoID = getVideoId(url);
-    console.log(videoID);
-    console.log(courses);
+    // console.log(videoID);
+    // console.log(courses);
     if (courses.includes(videoID)) {
       const docRef = doc(db, "users", uid);
-      console.log("Docref",docRef);
+      // console.log("Docref",docRef);
       const docSnap = await getDoc(docRef);
-      console.log(docSnap);
+      // console.log(docSnap);
       const data = docSnap.data();
-      console.log(data);
+      // console.log(data);
       dispatch(setChapters(data.courses[videoID].chapters));
       dispatch(
         setDetails({
@@ -77,7 +77,7 @@ function LinkInput() {
           channel: data.courses[videoID].channel,
         })
       );
-      console.log("already there!");
+      // console.log("already there!");
       navigate("/player");
       return;
     }
@@ -91,9 +91,9 @@ function LinkInput() {
         },
       })
       .then((result) => {
-        console.log("Result from axios", result);
+        // console.log("Result from axios", result);
         const data = parseDescription(result.data.items[0].snippet.description);
-        console.log("data from axios ",data);
+        // console.log("data from axios ",data);
         setTitle(result.data.items[0].snippet.title);
         setChannel(result.data.items[0].snippet.channelTitle);
         setThumbnail(result.data.items[0].snippet.thumbnails.high.url);
@@ -104,7 +104,7 @@ function LinkInput() {
             channel: result.data.items[0].snippet.channelTitle,
           })
         );
-        console.log("console. fron axios ",data);
+        // console.log("console. fron axios ",data);
 
         var cplist = {};
         for (var i in data) {
@@ -132,21 +132,21 @@ function LinkInput() {
           cplist[j - 1]["end"] = cplist[j]["time"];
         }
 
-        console.log("----------------------", numChapters);
+        // console.log("----------------------", numChapters);
         setchapters(cplist);
         dispatch(setChapters(cplist));
       })
       .catch((err) => {
-        console.log("Error from Axios", err);
+        // console.log("Error from Axios", err);
       });
   }
   const handleButtonClick = async (e) => {
     e.preventDefault();
-    console.log("handlbutton");
+    // console.log("handlbutton");
     dispatch(setInitialState());
     dispatch(setURL(inputRef.current.value));
     await loadDescription();
-    console.log(" fomr handle click button", inputRef.current.value);
+    // console.log(" fomr handle click button", inputRef.current.value);
   };
   useEffect(() => {
     if (chapters != null) {
@@ -154,8 +154,8 @@ function LinkInput() {
       let videoID = getVideoId(url);
 
       async function sendData() {
-        console.log("hello world");
-        console.log(chapters);
+        // console.log("hello world");
+        // console.log(chapters);
         await updateDoc(doc(db, "users", uid), {
           [`courses.${videoID}`]: {
             videoID: videoID,

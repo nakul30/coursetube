@@ -17,14 +17,14 @@ function Login() {
         const authentication = getAuth();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(authentication);
+        // console.log(authentication);
 
         signInWithEmailAndPassword(authentication, email, password).then(
             async (response) => {
-                console.log("Response",response);
+                // console.log("Response",response);
                 const docRef = doc(db, "users", response.user.uid);
                 const docSnap = await getDoc(docRef);
-                console.log("Doc Snap:",docSnap.data());
+                // console.log("Doc Snap:",docSnap.data());
                 dispatch(
                     setUserDetails({
                         uid: response.user.uid,

@@ -69,20 +69,20 @@ export const playerSlice = createSlice({
             state.value.url = action.payload;
         },
         setChapters: (state, action) => {
-            console.log("from set chapters action.payload ",action.payload);
+            // console.log("from set chapters action.payload ",action.payload);
             state.value.chapters = action.payload;
             state.value.numChapters = Object.keys(action.payload).length;
-            console.log("state value from state.value",state.value);
+            // console.log("state value from state.value",state.value);
         },
         setDetails: (state, action) => {
-            console.log("from set details action.payload", action.payload);
+            // console.log("from set details action.payload", action.payload);
             state.title = action.payload.title;
             state.channel = action.payload.channel;
-            console.log("from set deatils state.value",state.value);
+            // console.log("from set deatils state.value",state.value);
         },
         setChapterDone: (state, action) => {
-            console.log(state.value);
-            console.log(state.value.chapters);
+            // console.log(state.value);
+            // console.log(state.value.chapters);
             state.value.chapters[action.payload].played = true;
             state.value.index = action.payload + 1;
         },

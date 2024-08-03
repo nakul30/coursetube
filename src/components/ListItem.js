@@ -16,7 +16,7 @@ function ListItem({ id, title, playOnSeek, played }) {
         key={id}
         value={id}
         onClick={(e) => {
-          console.log("e.target.value",e.currentTarget.value);
+          // console.log("e.target.value",e.currentTarget.value);
           playOnSeek(e.currentTarget.value);
         }}
       >
