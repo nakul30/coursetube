@@ -21,6 +21,7 @@ function Header() {
             >
                 ChaptersQueue
             </Navbar.Brand>
+        
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -31,11 +32,19 @@ function Header() {
                     >
                         My Courses
                     </Nav.Link>
+                    <Nav.Link
+                        onClick={() => {
+                            navigate("/register");
+                        }}
+                    >
+                        Register
+                    </Nav.Link>
                 </Nav>
                 <Nav>
                     <Nav.Link eventKey={2}>{name}</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
+    
         </Navbar>
     )
 }
